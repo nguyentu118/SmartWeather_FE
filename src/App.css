@@ -1,0 +1,109 @@
+/* App.css - Custom styles for DateSlider scrollbar */
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+.scrollbar-thin::-webkit-scrollbar {
+    height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scrollbar-thumb-blue-400::-webkit-scrollbar-thumb {
+    background: #60a5fa;
+    border-radius: 3px;
+}
+
+.scrollbar-thumb-blue-400::-webkit-scrollbar-thumb:hover {
+    background: #3b82f6;
+}
+
+/* Dark mode scrollbar */
+.dark .scrollbar-thumb-blue-600::-webkit-scrollbar-thumb {
+    background: #2563eb;
+}
+
+.dark .scrollbar-thumb-blue-600::-webkit-scrollbar-thumb:hover {
+    background: #1d4ed8;
+}
+
+.dark .scrollbar-track-gray-700::-webkit-scrollbar-track {
+    background: #374151;
+}
+
+/* Firefox */
+.scrollbar-thin {
+    scrollbar-width: thin;
+}
+
+/* Smooth scroll behavior */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* Custom animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-slideIn {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Gradient text effect */
+.gradient-text {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Glass morphism effect */
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Improved focus states */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* Prevent text selection on interactive elements */
+button,
+.no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Responsive text sizing */
+@media (max-width: 640px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+}
