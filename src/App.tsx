@@ -36,7 +36,7 @@ const App: React.FC = () => {
 
     // Loading states
     const [loadingWeather, setLoadingWeather] = useState(false);
-    const [loadingHistory, setLoadingHistory] = useState(false);
+    const [, setLoadingHistory] = useState(false);
     const [loadingAlerts, setLoadingAlerts] = useState(false);
 
     const [error, setError] = useState<string | null>(null);
@@ -154,7 +154,6 @@ const App: React.FC = () => {
     };
 
     const isToday = selectedDate.toDateString() === new Date().toDateString();
-    const isFuture = selectedDate > new Date();
     const dateKey = selectedDate.toISOString().split('T')[0];
     const currentData = isToday ? currentWeather : weatherDataMap.get(dateKey) || null;
 
@@ -214,7 +213,7 @@ const App: React.FC = () => {
                             <DateTabs
                                 dates={availableDates}
                                 selectedDate={selectedDate}
-                                onSelectDate={handleDateSelect}
+                                onDateSelect={handleDateSelect}
                             />
                         )}
 
