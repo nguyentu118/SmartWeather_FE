@@ -8,7 +8,7 @@ interface LocationCardProps {
 
 const LocationCard: React.FC<LocationCardProps> = ({ onLocationReady }) => {
     const [currentLocation, setCurrentLocation] = useState<Location | null>(null);
-    const [loading, setLoading] = useState(false);
+    const [loading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [isDetecting, setIsDetecting] = useState(false);
 
