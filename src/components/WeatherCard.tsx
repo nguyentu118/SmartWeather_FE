@@ -1,5 +1,6 @@
 import React from 'react';
 import type {Weather} from '../services/api';
+import UVIndexCard from './UVIndexCard';
 
 interface WeatherCardProps {
     weather: Weather;
@@ -53,7 +54,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ weather, onRefresh }) => {
             </div>
 
             {/* Weather Details Grid */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-lg">
                     <div className="text-gray-600 dark:text-gray-400 text-sm">Độ ẩm</div>
                     <div className="text-2xl font-semibold text-blue-600 dark:text-blue-400">
@@ -81,16 +82,10 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ weather, onRefresh }) => {
                         {weather.visibility} km
                     </div>
                 </div>
-
-                {weather.uvIndex && (
-                    <div className="bg-orange-50 dark:bg-orange-900/30 p-4 rounded-lg col-span-2">
-                        <div className="text-gray-600 dark:text-gray-400 text-sm">UV Index</div>
-                        <div className="text-2xl font-semibold text-orange-600 dark:text-orange-400">
-                            {weather.uvIndex}
-                        </div>
-                    </div>
-                )}
             </div>
+
+            {/* UV Index Card - Đặc biệt nổi bật */}
+            <UVIndexCard uvIndex={weather.uvIndex} />
         </div>
     );
 };
